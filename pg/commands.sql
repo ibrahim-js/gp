@@ -124,3 +124,13 @@ SELECT setval(pg_get_serial_sequence('projets2', 'id'), (SELECT MAX("id") FROM "
 SELECT setval(pg_get_serial_sequence('projets_files', 'id'), (SELECT MAX("id") FROM "projets_files"));
 SELECT setval(pg_get_serial_sequence('projets2_files', 'id'), (SELECT MAX("id") FROM "projets2_files"));
 
+CREATE TABLE "logs" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER,
+    "action" VARCHAR,
+    "entity_type" VARCHAR,
+    "entity_id" INTEGER,
+    "message" TEXT,
+    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "translated_action" VARCHAR
+);
