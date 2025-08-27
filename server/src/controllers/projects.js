@@ -280,7 +280,22 @@ export async function fetchProjectFiles(req, res) {
       [id]
     );
 
-    res.status(200).json(result.rows);
+    const basePath = path.resolve(__dirname, "..", "files", "projets");
+
+    const filesWithExistence = result.rows.map((file) => {
+      const safeName = path.basename(String(file.name || "").trim());
+
+      if (!safeName) {
+        return { ...file, exists: false };
+      }
+
+      const filePath = path.join(basePath, safeName);
+      const exists = fs.existsSync(filePath);
+
+      return { ...file, exists };
+    });
+
+    res.status(200).json(filesWithExistence);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
@@ -327,8 +342,24 @@ export async function fetchProject2Files(req, res) {
       [id]
     );
 
-    res.status(200).json(result.rows);
+    const basePath = path.resolve(__dirname, "..", "files", "projets2");
+
+    const filesWithExistence = result.rows.map((file) => {
+      const safeName = path.basename(String(file.name || "").trim());
+
+      if (!safeName) {
+        return { ...file, exists: false };
+      }
+
+      const filePath = path.join(basePath, safeName);
+      const exists = fs.existsSync(filePath);
+
+      return { ...file, exists };
+    });
+
+    res.status(200).json(filesWithExistence);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
 }

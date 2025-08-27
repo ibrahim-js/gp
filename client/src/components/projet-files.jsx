@@ -572,7 +572,7 @@ export function ProjectFiles({ projectId, projectIndex }) {
             </div>
 
             <div className="w-full overflow-hidden h-[80vh] border-b">
-              {currentPdfFile && (
+              {currentPdfFile && currentPdfFile.exists ? (
                 <iframe
                   src={`${import.meta.env.VITE_BASE_API_URL}/files/projets/${
                     currentPdfFile.name
@@ -580,6 +580,10 @@ export function ProjectFiles({ projectId, projectIndex }) {
                   className="w-full h-full"
                   title={currentPdfFile.name}
                 />
+              ) : (
+                <div className="h-full w-full flex items-center justify-center text-gray-500">
+                  <p>Le fichier n’existe pas physiquement sur le serveur.</p>
+                </div>
               )}
             </div>
 

@@ -69,6 +69,8 @@ export async function fetchLogs(req, res) {
 
     const total = parseInt(countResult.rows[0].total_count, 10);
 
+    console.log(result.rows);
+
     res.json({
       logs: result.rows,
       total,
