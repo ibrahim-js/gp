@@ -88,6 +88,8 @@ app.post("/upload", upload.array("files", 10), async (req, res) => {
 
     await Promise.all(insertPromises);
 
+    const basePath = path.resolve(__dirname, "files", projectType);
+
     const fetchFilesQuery = await db.query(
       `
       SELECT 
@@ -103,9 +105,22 @@ app.post("/upload", upload.array("files", 10), async (req, res) => {
       [projectId]
     );
 
+    const filesWithExistence = fetchFilesQuery.rows.map((file) => {
+      const safeName = path.basename(String(file.name || "").trim());
+
+      if (!safeName) {
+        return { ...file, exists: false };
+      }
+
+      const filePath = path.join(basePath, safeName);
+      const exists = fs.existsSync(filePath);
+
+      return { ...file, exists };
+    });
+
     res.status(200).json({
       message: "Fichiers téléversés et enregistrés avec succès",
-      files: fetchFilesQuery.rows,
+      files: filesWithExistence,
     });
   } catch (err) {
     res.status(500).json({

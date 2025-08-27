@@ -29,17 +29,19 @@ export async function fetchDashboardStats(req, res) {
           (
             SELECT COUNT(*)
             FROM projets_files
-            WHERE LOWER(extension_type) LIKE '%.points'
+            WHERE LOWER(extension_type) LIKE '%.dwg'
           ) +
           (
             SELECT COUNT(*)
             FROM projets2_files
-            WHERE LOWER(extension_type) LIKE '%.points'
+            WHERE LOWER(extension_type) LIKE '%.dwg'
           ) AS total_autocad,
           (SELECT COUNT(*) FROM users) AS total_users;
       `;
 
     const result = await db.query(query);
+
+    console.log(result.rows[0]);
 
     res.json(result.rows[0]);
   } catch (error) {

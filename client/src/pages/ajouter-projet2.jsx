@@ -102,7 +102,7 @@ export default function AjouterProjet2() {
           translated_action: "Ajout de projet",
           entity_type: "project2",
           entity_id: newProjectId,
-          message: `${user.fname} ${user.lname} a ajouté le projet avec l'index : ${data.project.index}`,
+          message: `a ajouté(e) le projet avec l'index : ${data.project.index}`,
         }).then(() => {
           setTimeout(() => {
             navigate(`/e-archive-18-2022/${newProjectId}`);

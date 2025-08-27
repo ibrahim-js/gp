@@ -217,16 +217,10 @@ export default function JournalPage() {
                               </Badge>
                             </Link>
                           )}
-                        {/* {log.userId && (
-                          <Badge
-                            variant="outline"
-                            className="bg-purple-50 text-purple-800 border-purple-200"
-                          >
-                            Utilisateur #{log.userId}
-                          </Badge>
-                        )} */}
                       </div>
-                      <p className="text-base">{log.message}</p>
+                      <p className="text-base">
+                        {log.user} {log.message}
+                      </p>
                       <p className="text-xs text-muted-foreground mt-1">
                         le {formatDate(log.created_at)}
                       </p>

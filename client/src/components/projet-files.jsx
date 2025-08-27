@@ -57,7 +57,7 @@ export function ProjectFiles({ projectId, projectIndex }) {
       translated_action: "Consultation du fichier",
       entity_type: "project",
       entity_id: projectId,
-      message: `${user.fname} ${user.lname} a consulté le fichier ${file.name}`,
+      message: `a consulté(e) le fichier ${file.name}`,
     });
   };
 
@@ -83,7 +83,7 @@ export function ProjectFiles({ projectId, projectIndex }) {
       translated_action: "Téléchargement du fichier",
       entity_type: "project",
       entity_id: projectId,
-      message: `${user.fname} ${user.lname} a téléchargé le fichier ${file.name}`,
+      message: `a téléchargé(e) le fichier ${file.name}`,
     });
   };
 
@@ -105,7 +105,7 @@ export function ProjectFiles({ projectId, projectIndex }) {
           translated_action: "Suppression du fichier",
           entity_type: "project",
           entity_id: projectId,
-          message: `${user.fname} ${user.lname} a supprimé le fichier ${file.name}`,
+          message: `a supprimé(e) le fichier ${file.name}`,
         });
       })
       .catch((error) => {
@@ -161,7 +161,7 @@ export function ProjectFiles({ projectId, projectIndex }) {
           translated_action: "Ajout de fichier(s)",
           entity_type: "project",
           entity_id: projectId,
-          message: `${user.fname} ${user.lname} a ajouté un ou plusieurs fichier(s) au projet avec l'index : ${projectIndex}`,
+          message: `a ajouté(e) un ou plusieurs fichier(s) au projet avec l'index : ${projectIndex}`,
         });
       })
       .catch((error) => {

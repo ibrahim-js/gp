@@ -113,7 +113,7 @@ export default function PendingProjectsPage() {
           entity_type:
             selectedProject.type == "projets" ? "project" : "project2",
           entity_id: selectedProject.id,
-          message: `${user.fname} ${user.lname} a approuvé le projet avec l'index : ${selectedProject.index}.`,
+          message: `a approuvé(e) le projet avec l'index : ${selectedProject.index}.`,
         });
       })
       .catch((err) => {
@@ -147,11 +147,9 @@ export default function PendingProjectsPage() {
           entity_type:
             selectedProject.type == "projets" ? "project" : "project2",
           entity_id: selectedProject.id,
-          message: `${user.fname} ${
-            user.lname
-          } a refusé le projet avec l'index : ${selectedProject.index}. ${
-            rejectReason.trim() != "" ? `Motif: ${rejectReason}` : ""
-          }`,
+          message: `a refusé(e) le projet avec l'index : ${
+            selectedProject.index
+          }. ${rejectReason.trim() != "" ? `Motif: ${rejectReason}` : ""}`,
         });
       })
       .catch((err) => {

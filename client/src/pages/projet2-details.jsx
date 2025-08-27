@@ -43,7 +43,7 @@ export default function ProjectDetails() {
             translated_action: "Consultation de projet",
             entity_type: "project2",
             entity_id: data.id,
-            message: `${user.fname} ${user.lname} a consulté le projet avec l'index : ${data.index}.`,
+            message: `a consulté(e) le projet avec l'index : ${data.index}.`,
           });
         })
         .catch((error) => {
@@ -71,7 +71,7 @@ export default function ProjectDetails() {
           translated_action: "Modification de projet",
           entity_type: "project2",
           entity_id: projectId,
-          message: `${user.fname} ${user.lname} a modifié le projet avec l'index : ${project?.index}`,
+          message: `a modifié(e) le projet avec l'index : ${project?.index}`,
         });
       })
       .catch((error) => {
@@ -102,7 +102,7 @@ export default function ProjectDetails() {
           translated_action: "Suppression de projet",
           entity_type: "project2",
           entity_id: project.id,
-          message: `${user.fname} ${user.lname} a supprimé le projet avec l'index : ${project.index}.`,
+          message: `a supprimé(e) le projet avec l'index : ${project.index}.`,
         }).then(() => {
           setTimeout(() => {
             navigate(-1);

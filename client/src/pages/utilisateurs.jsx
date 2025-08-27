@@ -126,7 +126,7 @@ export default function Utilisateurs() {
           translated_action: "Ajout d'utilisateur",
           entity_type: "user",
           entity_id: data.user.id,
-          message: `${user.fname} ${user.lname} a ajouté ${data.user.fname} ${data.user.lname}.`,
+          message: `a ajouté(e) ${data.user.fname} ${data.user.lname}.`,
         });
       })
       .catch((error) => {
@@ -153,7 +153,7 @@ export default function Utilisateurs() {
           translated_action: "Modification d'utilisateur",
           entity_type: "user",
           entity_id: data.user.id,
-          message: `${user.fname} ${user.lname} a modifié l'utilisateur ${data.user.fname} ${data.user.lname}.`,
+          message: `a modifié(e) l'utilisateur ${data.user.fname} ${data.user.lname}.`,
         });
       })
       .catch((error) => {
@@ -177,7 +177,7 @@ export default function Utilisateurs() {
           translated_action: "Suppression d'utilisateur",
           entity_type: "user",
           entity_id: selectedUser.id,
-          message: `${user.fname} ${user.lname} a supprimé l'utilisateur ${selectedUser.fname} ${selectedUser.lname}.`,
+          message: `a supprimé(e) l'utilisateur ${selectedUser.fname} ${selectedUser.lname}.`,
         });
       })
       .catch((error) => {
